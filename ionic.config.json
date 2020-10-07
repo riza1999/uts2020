@@ -1,0 +1,7 @@
+{
+  "name": "uts2020",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
