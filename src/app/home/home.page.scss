@@ -25,3 +25,22 @@
 #container a {
   text-decoration: none;
 }
+
+.ion-padding.grid{
+  display: none;
+}
+.ion-padding.grid.show{
+  display: block;
+}
+.ion-padding.list{
+  display: none;
+}
+.ion-padding.list.show{
+  display: block;
+}
+.item.show{
+  display: block;
+}
+.item{
+  display: none;
+}
