@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ElectoService } from '../electro.service';
 import { Item } from '../Model/Item.model';
-import { Ram } from '../Model/Ram.model';
 
 @Component({
   selector: 'app-home',
