@@ -9,7 +9,6 @@ import { Ram } from './Model/Ram.model';
   providedIn: 'root'
 })
 export class ElectoService {
-    private ctrStock = 0;
     private ctr = 9;
     private allItem: Item[] = [];
     private ram: Ram[] = [
@@ -134,23 +133,32 @@ export class ElectoService {
     }
 
     deleteItem(itemId: number){
-        this.allItem = this.allItem.filter(item => {
+        this.ram = this.ram.filter(item => {
+            return item.id !== itemId;
+        })
+        this.gpu = this.gpu.filter(item => {
+            return item.id !== itemId;
+        })
+        this.cpu = this.cpu.filter(item => {
+            return item.id !== itemId;
+        })
+        this.motherboard = this.motherboard.filter(item => {
             return item.id !== itemId;
         })
     }
-
-    // editItem(contactId: string,contactName: string, contactPhoto: string, contactEmail: string[], contactPhone: string[]){
-    //     this.allItem.find(contact => {
-    //       if(contact.id === contactId){
-    //         contact.nama = contactName;
-    //         contact.telepon = contactPhone;
-    //         contact.email = contactEmail;
-    //         contact.foto = contactPhoto;
-    //       }
-    //     })
-    //     console.log(this.allItem);
-    //   }
     
+    editGPU(itemID: number, GPUName: string, GPUPhoto: string, GPUModel: string, GPUPrice: number, GPUStock: number){
+        this.gpu.find(e => {
+            if(e.id === itemID){
+                e.name = GPUModel;
+                e.brand = GPUName;
+                e.price = GPUPrice;
+                e.photoURL = GPUPhoto;
+                e.stock = GPUStock;
+            }
+        })
+    }
+
     addGPU(GPUName: string, GPUPhoto: string, GPUModel: string, GPUPrice: number, GPUStock: number){
         const newData: Gpu = {
             id: this.ctr,
@@ -165,6 +173,23 @@ export class ElectoService {
         this.ctr++;
         this.gpu.push(newData);
     }
+
+    editCPU(itemID: number,CPUName: string, CPUPhoto: string, CPUModel: string, CPUPrice: number, CPUStock: number, CPUBaseclock: number, CPUBoostclock: number, CPUCore: number, CPUThread:number){
+        this.cpu.find(e => {
+            if(e.id === itemID){
+                e.name = CPUModel;
+                e.brand = CPUName;
+                e.price = CPUPrice;
+                e.photoURL = CPUPhoto;
+                e.stock = CPUStock;
+                e.baseclock = CPUBaseclock;
+                e.boostclock = CPUBoostclock;
+                e.core = CPUCore;
+                e.thread = CPUThread;
+            }
+        })
+    }
+    
     addCPU(CPUName: string, CPUPhoto: string, CPUModel: string, CPUPrice: number, CPUStock: number, CPUBaseclock: number, CPUBoostclock: number, CPUCore: number, CPUThread:number){
         const newData: Cpu = {
             id: this.ctr,
@@ -183,6 +208,21 @@ export class ElectoService {
         this.ctr++;
         this.cpu.push(newData)
     }
+
+    editRAM(itemID: number,RAMName: string, RAMPhoto: string, RAMModel: string, RAMPrice: number, RAMStock: number, RAMSpeed: number, RAMSize: string){
+        this.ram.find(e => {
+            if(e.id === itemID){
+                e.name = RAMModel;
+                e.brand = RAMName;
+                e.price = RAMPrice;
+                e.photoURL = RAMPhoto;
+                e.stock = RAMStock;
+                e.speed = RAMSpeed;
+                e.size = RAMSize;
+            }
+        })
+    }
+
     addRAM(RAMName: string, RAMPhoto: string, RAMModel: string, RAMPrice: number, RAMStock: number, RAMSpeed: number, RAMSize: string){
         const newData: Ram = {
             id: this.ctr,
@@ -199,6 +239,21 @@ export class ElectoService {
         this.ctr++;
         this.ram.push(newData);
     }
+
+    editMotherboard(itemID: number,MBName: string, MBPhoto: string, MBModel: string, MBPrice: number, MBStock: number, MBChipset: string, MBForProc: string){
+        this.motherboard.find(e => {
+            if(e.id === itemID){
+                e.name = MBModel;
+                e.brand = MBName;
+                e.price = MBPrice;
+                e.photoURL = MBPhoto;
+                e.stock = MBStock;
+                e.chipset = MBChipset;
+                e.forProc = MBForProc;
+            }
+        })
+    }
+
     addMotherboard(MBName: string, MBPhoto: string, MBModel: string, MBPrice: number, MBStock: number, MBChipset: string, MBForProc: string){
         const newData: Motherboard = {
             id: this.ctr,
