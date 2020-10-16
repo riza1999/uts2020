@@ -24,4 +24,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: build www
-        run: ionic build --release
+        run: npm run ionic:build --prod
